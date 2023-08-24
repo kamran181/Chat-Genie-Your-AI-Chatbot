@@ -10,7 +10,7 @@ const openai = new OpenAI({
   
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT ;
 
 
 const app = express()
@@ -43,4 +43,5 @@ app.post('/', async (req, res) => {
   }
 })
 
+console.log('hello world');
 app.listen(PORT, () => console.log(`AI server started on http://localhost:${PORT}`));
