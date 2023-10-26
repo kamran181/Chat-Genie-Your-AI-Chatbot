@@ -4,8 +4,23 @@ import cors from 'cors'
 import OpenAI from 'openai';
 dotenv.config()
 
+const app = express();
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-const openai = new OpenAI({
+
+//connecting Mongodb
+import {connectDB} from './config/db.js'
+connectDB();
+
+
+
+//importing routes
+import userRoutes from './routes/userRoutes.js'
+
+
+const openai = new OpenAI({ 
   apiKey:process.env.OPENAI_API_KEY 
   
 });
@@ -13,18 +28,8 @@ const openai = new OpenAI({
 const PORT = process.env.PORT ;
 
 
-const app = express()
-app.use(cors())
-app.use(express.json())
 
-app.get('/', async (req, res) => {
-  res.status(200).send({
-    message: 'Hello from Chat Genie'
-
-  })
-})
-
-app.post('/', async (req, res) => {
+app.post('/',  async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
@@ -43,5 +48,6 @@ app.post('/', async (req, res) => {
   }
 })
 
-console.log('hello world');
+app.use(userRoutes);
+
 app.listen(PORT, () => console.log(`AI server started on http://localhost:${PORT}`));

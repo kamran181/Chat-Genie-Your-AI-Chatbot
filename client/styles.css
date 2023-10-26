@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+   margin: O;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #020410;
+}
+
+.background{
+    width: 100%;
+    height: 100vh;
+    background: url('assets/genie.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+    width: 75%;
+    height: 550px;
+    background: url('assets/genie.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.container .content {
+    position: absolute;
+    margin-top: 0%;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    background: transparent;
+    padding: 80px;
+    color: #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.content .logo {
+    font-size: 30px;
+    margin-top: 0;
+
+}
+
+.text-sci h2{
+    font-size: 40px;
+    line-height: 1;
+}
+
+.text-sci h2 span{
+    font-size: 25px;
+}
+
+.text-sci p {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.social-icons a i{
+    font-size: 22px;
+    color: #e4e4e4;
+    margin-right: 10px;
+    transition: .5s ease;
+}
+
+.social-icons a:hover i{
+    transform: scale(2);
+    color: #428BD5 ;
+}
+
+.container .logreg-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 58%);
+    height: 100%;
+    overflow: hidden;
+}
+
+.logreg-box h2{
+    text-align: center;
+    font-size: 37px;
+    font-weight: 500;
+}
+
+.logreg-box .form-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent ;
+    backdrop-filter: blur(20px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+}
+
+.logreg-box .form-box.login{
+    transform: translateX(0);
+    transition: transform .6s ease;
+    transition-delay: .7s;
+}
+
+.logreg-box.active .form-box.login{
+    transform: translateX(430px);
+    transition-delay: 0s ;
+}
+
+
+.logreg-box .form-box.register{
+    transform: translate(430px);
+    transition: transform .6s ease;
+    transition-delay: 0s;
+}
+
+.logreg-box.active .form-box.register{
+    transform: translate(0);
+    transition-delay: .7s;
+}
+
+
+
+.form-box .input-box {
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid #e4e4e4;
+    margin: 30px 0 ;
+    
+}
+
+
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    padding-right: 28px;
+}
+/* .input-box input:-internal-autofill-selected {
+    appearance: textfield;
+    background: transparent !important;
+    color: #e4e4e4 !important;
+} */
+
+input:-webkit-autofill {
+    background: transparent !important;
+    color:#e4e4e4 !important;
+}
+.input-box label {
+    position: absolute;
+    top:50%;
+    left: 0%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+
+.input-box .icon{
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 20px;
+}
+
+.btn {
+    width: 100%;    
+    height: 45px;
+    background: #428BD5;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+    color: #e4e4e4;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0 ,0 .5);
+}
+
+.form-box .login-register{
+    font-size: 15px;
+    font-weight: 500;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.login-register p a {
+    color: #428BD5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-register p a:hover {
+    text-decoration:underline  ;
+}
+
+/* For screens smaller than 768px (typical for mobile devices) */
+@media (max-width: 900px) {
+    .container {
+      width: 100%;
+      height: auto;
+    }
+  
+    .content {
+      padding: 20px;
+    }
+    
+    /* Adjust styles for the login/register box */
+    .logreg-box .form-box{
+      position: relative;
+      width: 100%;
+      display: flex;
+      
+      
+    }
+    .container .logreg-box {
+        overflow:visible;
+    }
+  
+    .form-box.login,
+    .form-box.register {
+      transform: translate(0); /* Reset the position for small screens */
+    }
+  }
+  
